@@ -23,6 +23,8 @@ while True :
     bus.write_byte(address, A1)
     X = bus.read_byte_data(address,A1)
     Y = bus.read_byte_data(address,A0) 
+    
+    # 조이스틱으로부터 받은 아날로그 값 0~255를 서보 모터의 출력 주기 0.0006~0.0026범위로 맞추어야 한다.
     X_value = ((X-4)*0.00000717) + 0.0006
     Y_value = ((Y-4)*0.00000717) + 0.0006
     
